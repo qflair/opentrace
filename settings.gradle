@@ -1,0 +1,3 @@
+rootProject.name = "opentrace"
+include ':sample'
+include ':opentrace'
