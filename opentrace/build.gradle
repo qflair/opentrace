@@ -2,6 +2,33 @@ plugins {
     id 'com.android.library'
 }
 
+apply from: "$project.rootDir/gradle/script-git-version.gradle"
+
+ext {
+    bintrayRepo = 'maven' // Repo name in bintray dashboard
+    bintrayName = 'com.qflair.opentrace' // package name of the bintray repo
+
+    publishedGroupId = 'com.qflair.opentrace'   // this is the ID we want to see in implementation line
+    libraryName = 'opentrace'     // this is the module name of library
+    artifact = 'opentrace'        // this is the artifact we want to see in implementation line
+
+    libraryDescription = '' // description of library
+
+    siteUrl = 'https://github.com/qflair/opentrace'    // git repo url
+    gitUrl = 'https://github.com/qflair/opentrace.git' // git repo vcs url
+
+    libraryVersion = appVersionName      // library version
+
+    developerId = 'qflair-llc'                // This is your bintray username
+    developerName = 'QFlair LLC'              // Developer's name
+    developerEmail = 'qflair.llc@gmail.com'                // Developer's email
+
+    licenseName = 'The Apache Software License, Version 2.0'  // for example, The Apache Software License, Version 2.0
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'   // for example, http://www.apache.org/licenses/LICENSE-2.0.txt
+    allLicenses = ["Apache-2.0"]    // array of licenses, for example, ["Apache-2.0"]
+}
+
+
 android {
     compileSdkVersion 29
     buildToolsVersion "30.0.2"
@@ -34,3 +61,5 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 }
+
+apply from: "$project.rootDir/gradle/publish.gradle"
